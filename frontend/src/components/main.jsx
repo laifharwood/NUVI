@@ -1,5 +1,7 @@
 var React = require('react')
 var request = require('superagent')
+var Country = require('./country')
+var Like = require('./like')
 
 module.exports = React.createClass({
   getInitialState: function(){
@@ -21,8 +23,62 @@ module.exports = React.createClass({
       }
     })
   },
+  formatDate: function(date){
+    var year = date.substring(2, 4)
+    var monthNumber = parseInt(date.substring(5, 7))
+    var day = date.substring(8)
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    var monthName = monthNames[monthNumber]
+    if(day.indexOf("0") == 0){
+      day = day.substring(1)
+    }
+    return monthName + " " + day + " " + year
+  },
+  renderSocialIcon: function(provider){
+    var src = ''
+    if(provider == "facebook"){
+      src = './images/facebook.png'
+    }else if(provider == "twitter"){
+      src = './images/twitter.png'
+    }else if(provider == "instagram"){
+      src = './images/instagram.png'
+    }else if(provider == "tumblr"){
+      src = './images/tumblr.png'
+    }
+    return <img className="social-icon" src={src}></img>
+  },
+  renderMessage: function(message){
+    if(message.indexOf('http') > 0){
+      return null
+    }else{
+      return <div className="activity-message">{message}</div>
+    }
+  },
+  renderAttachment: function(src){
+    if(src == null){
+      return null
+    }else{
+      return <div className="activity-attachment">
+        <img src={src} width="250px" height="250px"></img>
+      </div>
+    }
+  },
+  renderSentiment: function(sentiment){
+    var src = ''
+    if(sentiment == -1){
+      src = './images/negative.png'
+    }else if(sentiment == 0){
+      src = './images/neutral.png'
+    }else if(sentiment == 1){
+      src = './images/positive.png'
+    }
+    return <span className="sentiment">
+      <img src={src}/>
+    </span>
+  },
   renderActivityBoxes: function(){
-    return this.state.activities.map(function(activity){
+    var that = this
+    return this.state.activities.map(function(activity, index){
       return <div className="activity-box">
         <div className="activity-box-top">
           <div className="actor-avator">
@@ -33,8 +89,8 @@ module.exports = React.createClass({
             <div className="actor-hr"></div>
             <span className="actor-property">Username: </span>
             <span className="actor-value">{activity.actor_username}</span>
-            <span className="actor-property">Location: </span>
-            <span className="actor-value">USA</span>
+            <span className="actor-property">Country: </span>
+            <Country activity={activity} key={index}></Country>
             <div>
               <span className="actor-property">Description: </span>
               <span className="actor-value">{activity.actor_description}</span>
@@ -43,22 +99,16 @@ module.exports = React.createClass({
         </div>
         <div className="activity-container">
           <span>
-            <img className="social-icon" src="./images/twitter.png"></img>
+            {that.renderSocialIcon(activity.provider)}
           </span>
-          <span className="activity-message">
-            {activity.activity_message}
+          <span className="activity-date">
+            {that.formatDate(activity.activity_date)}
           </span>
-          <div className="activity-attachment">
-            <img src={activity.activity_attachment} width="250px" height="250px"></img>
-          </div>
+            {that.renderMessage(activity.activity_message)}
+          {that.renderAttachment(activity.activity_attachment)}
           <div className="action-buttons">
-            <span className="sentiment">
-              <img src="./images/positive.png"/>
-            </span>
-            <span className="like">
-              <img src="./images/not-liked.png"/>
-              <div>30</div>
-            </span>
+            {that.renderSentiment(activity.activity_sentiment)}
+            <Like activity={activity}></Like>
             <span className="comment">
               <img src="./images/comment.png"/>
               <div>5</div>

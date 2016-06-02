@@ -34,20 +34,24 @@ h1{
 }
 .stat-box{
   height: 300px;
-  width: 500px;
+  width: 25%;
   position: fixed;
   background-color: white;
-  left: 1335px;
+  left: 75%;
   top: 130px;
 }
 .activities-container{
   padding: 1%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content:flex-start;
+  flex-wrap:wrap;
+  justify-content:center;
   margin: 5px;
   position: relative;
   z-index: -1;
+  max-width: 999px;
+}
+.like-label{
+  color: white;
 }
 .activity-box{
   border: 1px solid #04FCF9;
@@ -116,14 +120,24 @@ h1{
   //align-self: center;
 }
 .social-icon{
-  margin: 10px;
+  margin: 5px;
+  margin-top: 10px;
 }
 .activity-message{
-  margin: 10px;
+  margin: 5px;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.activity-date{
+  margin: 5px;
+  vertical-align: text-top;
   color: white;
 }
 .activity-attachment{
   margin: 10px;
+  width: 100%;
+  text-align: center;
 }
 .action-buttons{
   width: 100%;
@@ -147,4 +161,7 @@ h1{
   height: 25px;
   margin-bottom: 10px;
   padding: 3px;
+}
+.like-img{
+
 }
