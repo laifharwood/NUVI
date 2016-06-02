@@ -1,0 +1,135 @@
+body {
+  background-color: black;
+  font-family: 'Cardo', serif;
+  margin: 0; }
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: white; }
+
+.dummy {
+  height: 100px; }
+
+.header {
+  position: fixed;
+  width: 100%;
+  margin-bottom: 500px;
+  background: linear-gradient(black, black); }
+
+.top-hr {
+  border-color: #02A09A; }
+
+.main {
+  margin-right: 10%;
+  margin-left: 10%; }
+
+.stat-box {
+  height: 300px;
+  width: 500px;
+  position: fixed;
+  background-color: white;
+  left: 1335px;
+  top: 130px; }
+
+.activities-container {
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 5px;
+  position: relative;
+  z-index: -1; }
+
+.activity-box {
+  border: 1px solid #04FCF9;
+  background-color: #011B1C;
+  padding: 1%;
+  height: auto;
+  width: 500px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.activity-box-top {
+  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; }
+
+.actor-avator {
+  border: 1px solid #04FCF9;
+  border-radius: 3px;
+  width: 50px;
+  height: 50px;
+  margin: 5px; }
+
+.actor-info-container {
+  width: 80%;
+  margin: 5px; }
+
+.actor-name {
+  display: inline;
+  margin-left: 5px;
+  color: white;
+  vertical-align: top;
+  font-size: 1.2em; }
+
+.actor-hr {
+  border: 1px solid #2E4243;
+  width: 400px; }
+
+.actor-property {
+  color: #747474;
+  font-size: 0.8em;
+  width: 30px;
+  margin: 3px; }
+
+.actor-value {
+  color: white;
+  font-size: 0.8em;
+  width: 30px;
+  margin: 3px; }
+
+.activity-container {
+  background-color: #004241;
+  border: 1px solid #00FEF6;
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px; }
+
+.social-icon {
+  margin: 10px; }
+
+.activity-message {
+  margin: 10px;
+  color: white; }
+
+.activity-attachment {
+  margin: 10px; }
+
+.action-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; }
+
+.like {
+  margin-bottom: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center; }
+
+.comment {
+  text-align: center; }
+
+.comment-input {
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  margin-bottom: 10px;
+  padding: 3px; }
