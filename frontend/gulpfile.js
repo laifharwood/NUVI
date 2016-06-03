@@ -30,6 +30,7 @@ var notify = function(error) {
   }
 
   notifier.notify({title: title, message: message});
+  console.log("title: ", title, "message: ", message)
 };
 
 var bundler = watchify(browserify({
@@ -55,6 +56,23 @@ bundler.on('update', bundle)
 gulp.task('build', function() {
   bundle()
 });
+
+// gulp.task('serve', function(done) {
+//   gulp.src('')
+//     .pipe(server({
+//       livereload: {
+//         enable: false,
+//         filter: function(filePath, cb) {
+//           if(/main.js/.test(filePath)) {
+//             cb(true)
+//           } else if(/style.css/.test(filePath)){
+//             cb(true)
+//           }
+//         }
+//       },
+//       open: false
+//     }));
+// });
 
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')

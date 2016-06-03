@@ -30,25 +30,46 @@ h1{
 .main{
   margin-right: 10%;
   margin-left: 10%;
+  //width: 100%;
   //height: 70%;
 }
 .stat-box{
-  height: 300px;
-  width: 25%;
+  height: auto;
+  width: 480px;
   position: fixed;
-  background-color: white;
-  left: 75%;
-  top: 130px;
+  background-color: #011B1C;
+  top: 0.2em;
+  right: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sentiment-result{
+  width: auto;
+  height: auto;
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px;
+}
+.positive-result{
+  color: #44BF56;
+}
+.negative-result{
+  color: #C9313A;
+}
+.neutral-result{
+  color: #3688B6;
 }
 .activities-container{
   padding: 1%;
   display: flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin: 5px;
-  position: relative;
+  //flex-wrap: wrap;
+  //justify-content: center;
   z-index: -1;
-  max-width: 999px;
+  width: 500px;
+  flex-direction: column;
+  align-content: center;
+  margin: auto;
 }
 .like-label{
   color: white;
@@ -58,7 +79,7 @@ h1{
   background-color: #011B1C;
   padding: 1%;
   height: auto;
-  width: 500px;
+  width: auto;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -94,7 +115,7 @@ h1{
 }
 .actor-hr{
   border: 1px solid #2E4243;
-  width: 400px;
+  width: 375px;
 }
 .actor-property{
   color: #747474;
